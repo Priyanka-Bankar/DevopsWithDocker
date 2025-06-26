@@ -8,8 +8,13 @@ Now you have containers and some images that are no longer in use and are taking
 Clean the Docker daemon by removing all images and containers.
 
 As an answer give the output for docker ps -a and docker image ls
+## stop all container
+```shell
+docker stop brave_sammet
+docker stop nice_shockley
+````
 
-
+## output
 ```shell
 docker ps -a
 
@@ -17,7 +22,7 @@ CONTAINER ID   IMAGE        COMMAND                  CREATED          STATUS    
 feb8a549388b   httpd     "httpd-foreground"       5 minutes ago    Exited (0) 17 seconds ago                upbeat_wing
 592eba56a2a6   mysql     "docker-entrypoint.s…"   32 minutes ago   Exited (1) 14 minutes ago                brave_sammet
 6b2a9d5f8cab   redis     "docker-entrypoint.s…"   34 minutes ago   Exited (0) 5 seconds ago                 priceless_napier
-1fb4ca85782f   nginx     "/docker-entrypoint.…"   34 minutes ago   Exited (0) 14 minutes ago                80/tcp      nice_shockley
+1fb4ca85782f   nginx     "/docker-entrypoint.…"   34 minutes ago   Exited (0) 14 minutes ago                nice_shockley
 ```
 ## Removeing all containers
 ```shell
@@ -25,6 +30,11 @@ docker container rm upbeat_wing
 docker container rm brave summit
 docker container rm priceless_napier
 docker container rm nice_shockley
+
+
+or 
+
+docker container prune
 ```
 ## Output
 ```
@@ -34,16 +44,24 @@ CONTAINER ID   IMAGE        COMMAND                  CREATED          STATUS    
 
 ```
 
+
 ## Removing all images
 ```
 docker image rm httpd
 docker image rm mysql
 docker image rm redis
 docker image rm nginx
+
+
+or 
+
+docker image prune
+
+
 ```
 ## Output
 ```
 docker image ls -a
 
-CONTAINER ID   IMAGE        COMMAND                  CREATED          STATUS                      PORTS         NAMES
+CREPOSITORY   TAG       IMAGE ID   CREATED   SIZE
 ````
