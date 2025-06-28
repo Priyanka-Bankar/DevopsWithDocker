@@ -43,7 +43,7 @@ $ docker run -it curler
 ```
 Give your Dockerfile as answer.
 
-## outputS
+## output
 ```
 # Start from the Ubuntu image
 
