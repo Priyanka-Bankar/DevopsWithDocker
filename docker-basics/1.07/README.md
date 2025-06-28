@@ -42,7 +42,7 @@ $ docker run -it curler
 
 ```
 Give your Dockerfile as answer.
-
+# Dockerfile
 ## output
 ```
 # Start from the Ubuntu image
@@ -68,3 +68,9 @@ RUN chmod +x script.sh
 # When running Docker run the command will be ./hello.sh
 
 CMD ["./script.sh"]
+```
+## commands
+```
+~ docker build . -t curler
+~ docker run -it curler
+```
