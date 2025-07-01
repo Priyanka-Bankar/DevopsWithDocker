@@ -26,6 +26,6 @@ mv ~/git/DevopsWithDocker/material-applications/example-frontend .
 ```
 # command to build and run 
 ```
-docker build . -t reactapp
-docker run -p 5000:5000 myapp1.12
+docker build . -t ractapp
+docker run -p 5000:5000 ractapp
 ```
