@@ -1,0 +1,20 @@
+services:
+  
+  frontend:
+    image: frontend
+    ports:
+      - 5000:5000
+    container_name: frontend-container
+
+  backend:
+    image: backend
+    environment:
+      - REDIS_HOST=redis_db_container
+    ports:
+      - 8080:8080
+    container_name: backend-container
+    
+  db:
+    image: redis:alpine
+    restart: unless-stopped
+    container_name: redis_db_container
