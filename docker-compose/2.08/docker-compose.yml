@@ -1,0 +1,42 @@
+services:
+  
+  frontend:
+    image: frontend
+    ports:
+      - 5000:5000
+    container_name: frontend-container
+
+  backend:
+    image: backend
+    environment:
+      - REDIS_HOST=redis_db_container
+      - POSTGRES_HOST=postgres_db_container
+    ports:
+      - 8080:8080
+    container_name: backend-container
+    
+  db_redis:
+    image: redis:alpine
+    restart: unless-stopped
+    container_name: redis_db_container
+
+  db_postgres:
+    image: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./database:/var/lib/postgresql/data
+    container_name: postgres_db_container
+
+  nginx_proxy:
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    environment:
+      - NGINX_HOST=80
+    container_name: nginx_proxy_container
+
+  
